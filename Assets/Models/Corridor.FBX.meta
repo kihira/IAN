@@ -1,15 +1,74 @@
 fileFormatVersion: 2
-guid: 015b6329b98ebb2468ea331adb7486fe
+guid: c0f9fb5b404daad45ab653f0a2681dd8
+timeCreated: 1456223049
+licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
-    2300000: default
-    3300000: default
-    4300000: default
+    100000: //RootNode
+    100002: Floor
+    100004: PhotometricLight001
+    100006: Pillar
+    100008: Roof
+    100010: Walls
+    100012: Cylinder001
+    100014: Player
+    100016: Box001
+    100018: Plane001
+    100020: Pipe
+    100022: Pipe001
+    400000: //RootNode
+    400002: Floor
+    400004: PhotometricLight001
+    400006: Pillar
+    400008: Roof
+    400010: Walls
+    400012: Cylinder001
+    400014: Player
+    400016: Box001
+    400018: Plane001
+    400020: Pipe
+    400022: Pipe001
+    2300000: Floor
+    2300002: Pillar
+    2300004: Roof
+    2300006: Walls
+    2300008: Cylinder001
+    2300010: Player
+    2300012: Box001
+    2300014: Plane001
+    2300016: Pipe
+    2300018: Pipe001
+    3300000: Floor
+    3300002: Pillar
+    3300004: Roof
+    3300006: Walls
+    3300008: Cylinder001
+    3300010: Player
+    3300012: Box001
+    3300014: Plane001
+    3300016: Pipe
+    3300018: Pipe001
+    4300000: Floor
+    4300002: Pillar
+    4300004: Walls
+    4300006: Roof
+    4300008: Cylinder001
+    4300010: Player
+    4300012: Plane001
+    4300014: Box001
+    4300016: Pipe
+    4300018: Pipe001
+    6400000: Floor
+    6400002: Pillar
+    6400004: Roof
+    6400006: Walls
+    6400008: Cylinder001
+    6400010: Player
+    6400012: Box001
+    6400014: Plane001
+    6400016: Pipe
+    6400018: Pipe001
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -36,7 +95,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -48,13 +107,13 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
@@ -69,7 +128,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
