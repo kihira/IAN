@@ -52,11 +52,8 @@ public class HandInfoPanel : MonoBehaviour
     private void UpdatePosition()
     {
         // Less jittery to manually transform the position then add it as a child of the palm
-        Vector3 newPos = hand.GetPalmPosition() + (hand.palm.up * 2f);
-        if (Math.Abs(newPos.sqrMagnitude - transform.position.sqrMagnitude) > tolerance)
-        {
-            transform.Translate((newPos - transform.position) * followSpeed);
-        }
+        Vector3 newPos = hand.GetPalmPosition() + (hand.palm.up * -0.1f);
+        transform.Translate((newPos - transform.position) * followSpeed);
         // TODO FIXME
         //if (faceCamera) transform.LookAt(Camera.main.transform);
     }
