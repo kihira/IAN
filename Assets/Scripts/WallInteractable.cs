@@ -7,7 +7,7 @@ public class WallInteractable : MonoBehaviour
 
     [SerializeField] private GameObject handInfoPanel;
 
-    private int currHandTouching = -1;
+    private bool activated = false;
 
     HandModel GetHand(Transform other)
     {
@@ -22,14 +22,13 @@ public class WallInteractable : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // TODO way to allow replaying?
-        if (currHandTouching != -1) return;
+        if (activated) return;
 
-        var hand = GetHand(other.transform);
+        HandModel hand = GetHand(other.transform);
         if (hand == null) return;
 
-        var handID = hand.GetLeapHand().Id;
-        currHandTouching = handID;
+        int handID = hand.GetLeapHand().Id;
+        activated = true;
 
         // Attach hand info panel and activate
         handInfoPanel.GetComponent<HandInfoPanel>().Attach(hand);

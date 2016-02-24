@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using Leap;
+using UnityEngine.UI;
 
 public class HandInfoPanel : MonoBehaviour
 {
@@ -76,11 +77,14 @@ public class HandInfoPanel : MonoBehaviour
         leftHand = handModel.GetLeapHand().IsLeft;
     }
 
-    public void Attach(HandModel handModel, string text)
+    public void Attach(HandModel handModel, string text, AudioClip audio)
     {
         Attach(handModel);
 
         playingTime = 0f;
-
+        // Get text panel and display
+        GameObject.Find("Canvas/Text Panel/ScrollView/Text").GetComponent<Text>().text = text;
+        // Get audio panel and play
+        GameObject.Find("Canvas/Audio Panel");
     }
 }
