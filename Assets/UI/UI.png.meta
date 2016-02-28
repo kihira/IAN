@@ -1,9 +1,22 @@
 fileFormatVersion: 2
 guid: a0a5e4a800895f641afd56714dfe4568
-timeCreated: 1456340112
+timeCreated: 1456682874
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: LogButtonClicked
+    21300002: PlayButtonClicked
+    21300004: StopButtonClicked
+    21300006: LogButton
+    21300008: PlayButton
+    21300010: StopButton
+    21300012: Background
+    21300014: Log Button Clicked
+    21300016: Play Button Clicked
+    21300018: Stop Button Clicked
+    21300020: Log Button
+    21300022: Play Button
+    21300024: Stop Button
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,7 +51,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +62,77 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Log Button Clicked
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 866
+        width: 199
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Play Button Clicked
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 865
+        width: 311
+        height: 85
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Stop Button Clicked
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 865
+        width: 289
+        height: 85
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Log Button
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 743
+        width: 199
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Play Button
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 744
+        width: 311
+        height: 85
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Stop Button
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 742
+        width: 289
+        height: 86
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Background
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 1262
+        height: 720
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
