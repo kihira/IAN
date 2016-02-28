@@ -1,11 +1,20 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using Leap;
 
 public class WallInteractable : MonoBehaviour
 {
+    [Serializable]
+    public struct LogData
+    {
+        public string title;
+        [Multiline] public string message;
+        public AudioClip audio;
+        public bool autoPlay;
+    }
 
-    [SerializeField] private GameObject handInfoPanel;
+    [SerializeField] private LogData log;
 
     private bool activated = false;
 
@@ -27,12 +36,10 @@ public class WallInteractable : MonoBehaviour
         HandModel hand = GetHand(other.transform);
         if (hand == null) return;
 
-        int handID = hand.GetLeapHand().Id;
-        activated = true;
-
         // Attach hand info panel and activate
-        handInfoPanel.GetComponent<HandInfoPanel>().Attach(hand);
-        handInfoPanel.SetActive(true);
+        GameObject handPanel = GameObject.Find("Hand Mount");
+        handPanel.GetComponent<HandInfoPanel>().Attach(hand, log);
+        activated = true;
 
         Debug.Log("Hand activated wall panel");
     }

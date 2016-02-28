@@ -6,17 +6,19 @@ using UnityEngine.UI;
 
 public class HandInfoPanel : MonoBehaviour
 {
+    [Header("Tracking Settings")]
     [SerializeField] private HandController handController;
     [SerializeField] private bool faceCamera;
-    [SerializeField] private float tolerance = 0.1f;
-    [SerializeField] private float followSpeed = 0.1f;
-
     [SerializeField] private float retrackTime = 2f;
     private float detachedTime = 0f;
+
+    [Header("UI")]
+    [SerializeField] private GameObject canvas;
 
     private HandModel hand;
     private bool leftHand;
 
+    private WallInteractable.LogData currLog;
     private float playingTime = 0f;
 
     private void Update()
@@ -26,8 +28,11 @@ public class HandInfoPanel : MonoBehaviour
         {
             if (detachedTime > retrackTime)
             {
-                Debug.Log("Failed to retrack correct hand, deactivating");
-                Disable();
+                if (canvas.activeSelf)
+                {
+                    Debug.Log("Failed to retrack correct hand, deactivating canvas");
+                    canvas.SetActive(false);
+                }
                 return;
             }
             foreach (var graphicHand in handController.GetAllGraphicsHands())
@@ -52,8 +57,9 @@ public class HandInfoPanel : MonoBehaviour
     private void UpdatePosition()
     {
         // Less jittery to manually transform the position then add it as a child of the palm
-        Vector3 newPos = hand.GetPalmPosition() + (hand.palm.up * -0.1f);
-        transform.Translate((newPos - transform.position) * followSpeed);
+        Vector3 newPos = hand.GetPalmPosition() + (hand.palm.up * 0.1f);
+        transform.position = Vector3.Lerp(transform.position, newPos, Math.Abs(newPos.sqrMagnitude - transform.position.sqrMagnitude));
+
         // TODO FIXME
         //if (faceCamera) transform.LookAt(Camera.main.transform);
     }
@@ -63,25 +69,19 @@ public class HandInfoPanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    /// <summary>
-    /// Attach this panel to a certain hand
-    /// The hand side is stored for future reference to re-attach to incase of temporary loss of tracking
-    /// </summary>
-    /// <param name="handModel">The HandModel to attach to</param>
-    public void Attach(HandModel handModel)
+    public void Attach(HandModel handModel, WallInteractable.LogData log)
     {
         hand = handModel;
         leftHand = handModel.GetLeapHand().IsLeft;
-    }
+        detachedTime = 0f;
 
-    public void Attach(HandModel handModel, string text, AudioClip audio)
-    {
-        Attach(handModel);
-
+        currLog = log;
         playingTime = 0f;
-        // Get text panel and display
-        GameObject.Find("Canvas/Text Panel/ScrollView/Text").GetComponent<Text>().text = text;
-        // Get audio panel and play
-        GameObject.Find("Canvas/Audio Panel");
+
+        // TODO show downloading message
+        canvas.SetActive(true);
+        GameObject.Find("Canvas/Text Panel/ScrollView/Text").GetComponent<Text>().text = log.message;
+        GetComponent<AudioSource>().clip = log.audio;
+        if (log.autoPlay) GetComponent<AudioSource>().Play();
     }
 }
