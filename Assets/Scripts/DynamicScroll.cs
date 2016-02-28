@@ -4,16 +4,21 @@ using UnityEngine.UI;
 
 public class DynamicScroll : ScrollBase {
 
-    void Start()
+    private void Start()
     {
         base.Start();
 
         BoxCollider collider = GetComponent<BoxCollider>();
-        RectTransform parentTransform = (RectTransform)transform.parent;
+        RectTransform parentTransform = (RectTransform) transform.parent;
         collider.size = new Vector3(parentTransform.rect.width, parentTransform.rect.height, 0.5f);
 
         // Hacky fix for ContentSizeFitter
         Invoke("ContentBoundUpdate", 0.1f);
+    }
+
+    public void DelayedUpdate(float delay)
+    {
+        Invoke("ContentBoundUpdate", delay);
     }
 
     // Hacky fix for ContentSizeFitter

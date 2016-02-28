@@ -9,7 +9,7 @@ public class WallInteractable : MonoBehaviour
     public struct LogData
     {
         public string title;
-        [Multiline] public string message;
+        [TextArea(5, 5)] public string message;
         public AudioClip audio;
         public bool autoPlay;
     }
