@@ -34,7 +34,7 @@ public class WallInteractable : MonoBehaviour
         if (activated) return;
 
         HandModel hand = GetHand(other.transform);
-        if (hand == null) return;
+        if (hand == null || hand.GetLeapHand().IsLeft) return;
 
         // Attach hand info panel and activate
         GameObject handPanel = GameObject.Find("Hand Mount");
