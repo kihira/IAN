@@ -59,7 +59,7 @@ public class HandInfoPanel : MonoBehaviour
     {
         // Less jittery to manually transform the position then add it as a child of the palm
         // Palm position isn't in middle of palm, more it floats up and in front of it. not going insane trying to correct for that
-        Vector3 newPos = hand.GetPalmPosition() + hand.GetPalmRotation() * (Vector3.up * 0.1f);
+        Vector3 newPos = hand.GetPalmPosition() + transform.parent.rotation * (Vector3.left * 0.1f);
         transform.position = Vector3.Lerp(transform.position, newPos, Math.Abs(newPos.sqrMagnitude - transform.position.sqrMagnitude));
 
         // TODO FIXME
