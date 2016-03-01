@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a0a5e4a800895f641afd56714dfe4568
-timeCreated: 1456682874
+timeCreated: 1456782579
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,10 +13,10 @@ TextureImporter:
     21300012: Background
     21300014: Log Button Clicked
     21300016: Play Button Clicked
-    21300018: Stop Button Clicked
+    21300018: Audio Button Clicked
     21300020: Log Button
     21300022: Play Button
-    21300024: Stop Button
+    21300024: Audio Button
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -73,22 +73,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Play Button Clicked
+    - name: Audio Button Clicked
       rect:
         serializedVersion: 2
-        x: 608
+        x: 666
         y: 865
-        width: 311
-        height: 85
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Stop Button Clicked
-      rect:
-        serializedVersion: 2
-        x: 936
-        y: 865
-        width: 289
+        width: 559
         height: 85
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -103,22 +93,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Play Button
+    - name: Audio Button
       rect:
         serializedVersion: 2
-        x: 608
-        y: 744
-        width: 311
-        height: 85
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Stop Button
-      rect:
-        serializedVersion: 2
-        x: 936
+        x: 666
         y: 742
-        width: 289
+        width: 559
         height: 86
       alignment: 0
       pivot: {x: .5, y: .5}
