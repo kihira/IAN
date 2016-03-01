@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using Leap;
 using UnityEngine.UI;
+using Image = UnityEngine.UI.Image;
 
 public class HandInfoPanel : MonoBehaviour
 {
@@ -15,10 +16,20 @@ public class HandInfoPanel : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject canvas;
 
-    private HandModel hand;
+    [Header("Audio")]
+    [SerializeField] private GameObject audioButton;
 
+    /** Components **/
+    private AudioSource audio;
+
+    private HandModel hand;
     private WallInteractable.LogData currLog;
     private float playingTime = 0f;
+
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -45,6 +56,11 @@ public class HandInfoPanel : MonoBehaviour
         if (hand == null) return;
 
         UpdatePosition();
+    }
+
+    void FixedUpdate()
+    {
+        Audio();
     }
 
     void OnTriggerEnter(Collider other)
@@ -78,7 +94,27 @@ public class HandInfoPanel : MonoBehaviour
         canvas.SetActive(true);
         GameObject.Find("Canvas/Text Panel/ScrollView/Text").GetComponent<Text>().text = log.message;
         GameObject.Find("Canvas/Text Panel/ScrollHandle").GetComponent<DynamicScroll>().DelayedUpdate(0.1f);
-        GetComponent<AudioSource>().clip = log.audio;
-        if (log.autoPlay) GetComponent<AudioSource>().Play();
+        audio.clip = log.audio;
+        if (log.autoPlay) audio.Play();
+    }
+
+    void Audio()
+    {
+        if (audioButton.GetComponent<ButtonToggle>().ToggleState != audio.isPlaying)
+        {
+            audioButton.GetComponent<ButtonToggle>().ToggleState = audio.isPlaying;
+        }
+    }
+
+    public void AudioToggle(bool start)
+    {
+        if (start)
+        {
+            audio.Play();
+        }
+        else
+        {
+            audio.Stop();
+        }
     }
 }

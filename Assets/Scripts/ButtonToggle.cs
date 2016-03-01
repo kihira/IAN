@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using LMWidgets;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -11,25 +12,46 @@ using UnityEngine.UI;
 [RequireComponent(typeof (Button), typeof (Image))]
 public class ButtonToggle : ButtonToggleBase
 {
+    [SerializeField] private boolEvent onChangeEvent;
+
+    private Button button;
+
+    void Start()
+    {
+        button = GetComponent<Button>();
+    }
 
     // TODO support multiple transition types in the future?
     public override void ButtonTurnsOn()
     {
-        Button button = GetComponent<Button>();
-        if (button.transition == Selectable.Transition.SpriteSwap)
-        {
-            GetComponent<Image>().overrideSprite = GetComponent<Button>().spriteState.pressedSprite;
-        }
-        GetComponent<Button>().OnPointerClick(new PointerEventData(null));
+        UpdateSprite();
+        Debug.Log("Button on");
+        onChangeEvent.Invoke(true);
     }
 
     public override void ButtonTurnsOff()
     {
-        Button button = GetComponent<Button>();
-        if (button.transition == Selectable.Transition.SpriteSwap)
-        {
-            GetComponent<Image>().overrideSprite = null;
-        }
-        GetComponent<Button>().OnPointerClick(new PointerEventData(null));
+        UpdateSprite();
+        Debug.Log("Button off");
+        onChangeEvent.Invoke(false);
     }
+
+    /// <summary>
+    /// Sets the toggle state for the button
+    /// </summary>
+    public void SetToggleState(bool state, bool force = false, bool callEvents = false)
+    {
+        if (state == m_toggleState && !force) return;
+        if (callEvents) ToggleState = state;
+        else m_toggleState = state;
+        UpdateSprite();
+    }
+
+    private void UpdateSprite()
+    {
+        GetComponent<Image>().overrideSprite = ToggleState ? GetComponent<Button>().spriteState.pressedSprite : null;
+    }
+
+    [System.Serializable]
+    public class boolEvent : UnityEvent<bool> { }
 }
