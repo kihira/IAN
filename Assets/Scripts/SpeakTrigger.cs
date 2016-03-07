@@ -11,13 +11,14 @@ public class SpeakTrigger : MonoBehaviour {
         audioSource = GameObject.Find("Player/Hand Mount").GetComponent<AudioSource>();
 	}
 
-	void onTriggerEnter(Collider other)
+	void OnTriggerEnter(Collider other)
 	{
 		Debug.Log ("The Trigger functions");
 		if (!hasPlayed) {
 			Debug.Log ("Audio hasn't been played");
 		    audioSource.clip = voiceClip;
             audioSource.Play();
+            Destroy(this.gameObject);
 		}
 	}
 }
