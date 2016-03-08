@@ -8,10 +8,11 @@ using Image = UnityEngine.UI.Image;
 public class HandInfoPanel : MonoBehaviour
 {
     [Header("Tracking Settings")]
-    [SerializeField] private HandController handController;
+    [HideInInspector] public HandController handController;
     [SerializeField] private bool faceCamera;
     [SerializeField] private float retrackTime = 2f;
     private float detachedTime = 0f;
+    private bool shouldReattach = false;
 
     [Header("UI")]
     [SerializeField] private GameObject canvas;
@@ -34,12 +35,12 @@ public class HandInfoPanel : MonoBehaviour
     void Update()
     {
         // Attempt to reattach if possible
-        if (hand == null)
+        if (hand == null && shouldReattach)
         {
-            if (detachedTime > retrackTime && canvas.activeSelf)
+            if (detachedTime > retrackTime)
             {
-                Debug.Log("Failed to retrack correct hand, deactivating canvas");
-                canvas.SetActive(false);
+                Debug.Log("Failed to retrack correct hand, giving up");
+                shouldReattach = false;
                 return;
             }
             foreach (var graphicHand in handController.GetAllGraphicsHands())
@@ -48,12 +49,17 @@ public class HandInfoPanel : MonoBehaviour
                 {
                     hand = graphicHand;
                     detachedTime = 0f;
+                    canvas.SetActive(true);
                     break;
                 }
             }
             detachedTime += Time.deltaTime;
         }
-        if (hand == null) return;
+        if (hand == null)
+        {
+            if (canvas.activeSelf) canvas.SetActive(false);
+            return;
+        }
 
         UpdatePosition();
     }
@@ -86,6 +92,7 @@ public class HandInfoPanel : MonoBehaviour
     {
         hand = handModel;
         detachedTime = 0f;
+        shouldReattach = true;
 
         currLog = log;
         playingTime = 0f;
