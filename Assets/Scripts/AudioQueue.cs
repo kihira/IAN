@@ -5,25 +5,25 @@ using System.Collections.Generic;
 public class AudioQueue : MonoBehaviour
 {
     private readonly Queue<AudioClip> audioQueue = new Queue<AudioClip>();
-    private AudioSource audio;
+    private AudioSource audioSource;
 
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 	
 	void Update () {
-	    if (!audio.isPlaying && audioQueue.Count > 0)
+	    if (!audioSource.isPlaying && audioQueue.Count > 0)
 	    {
             Debug.Log("Playing next clip");
-            audio.clip = audioQueue.Dequeue();
-            audio.Play();
+            audioSource.clip = audioQueue.Dequeue();
+            audioSource.Play();
 	    }
 	}
 
     public void AddAudio(AudioClip clip)
     {
-        Debug.Log("Added audio to queue");
+        Debug.Log("Added audioSource to queue");
         audioQueue.Enqueue(clip);
     }
 }
