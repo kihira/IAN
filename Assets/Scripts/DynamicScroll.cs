@@ -28,5 +28,7 @@ public class DynamicScroll : ScrollBase {
         ContentTopBound.localPosition = new Vector3(0f, heightMid, 0f);
         ContentBottomBound.localPosition = new Vector3(0f, -heightMid, 0f);
         ContentTransform.localPosition = new Vector3(0f, -heightMid, 0f);
+        ContentTransform.gameObject.GetComponent<LayoutElement>().minWidth = ((RectTransform) transform.parent).rect.width;
+        ContentTransform.gameObject.GetComponent<LayoutElement>().preferredWidth = ((RectTransform)transform.parent).rect.width;
     }
 }
