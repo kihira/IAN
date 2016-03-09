@@ -21,7 +21,8 @@ public class HandInfoPanel : MonoBehaviour
     [SerializeField] private GameObject audioButton;
 
     /** Components **/
-    private AudioSource audio;
+    private AudioQueue audioQueue;
+    private AudioSource audioSource;
 
     private HandModel hand;
     private WallInteractable.LogData currLog;
@@ -29,7 +30,8 @@ public class HandInfoPanel : MonoBehaviour
 
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        audioQueue = GetComponent<AudioQueue>();
+        audioSource = GameObject.Find("Player").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -101,15 +103,14 @@ public class HandInfoPanel : MonoBehaviour
         canvas.SetActive(true);
         GameObject.Find("Canvas/Text Panel/ScrollView/Text").GetComponent<Text>().text = log.message;
         GameObject.Find("Canvas/Text Panel/ScrollHandle").GetComponent<DynamicScroll>().DelayedUpdate(0.1f);
-        audio.clip = log.audio;
-        if (log.autoPlay) audio.Play();
+        audioQueue.AddAudio(log.audio);
     }
 
     void Audio()
     {
-        if (audioButton.GetComponent<ButtonToggle>().ToggleState != audio.isPlaying)
+        if (audioButton.GetComponent<ButtonToggle>().ToggleState != audioSource.isPlaying)
         {
-            audioButton.GetComponent<ButtonToggle>().ToggleState = audio.isPlaying;
+            audioButton.GetComponent<ButtonToggle>().ToggleState = audioSource.isPlaying;
         }
     }
 
@@ -117,11 +118,11 @@ public class HandInfoPanel : MonoBehaviour
     {
         if (start)
         {
-            audio.Play();
+            audioSource.Play();
         }
         else
         {
-            audio.Stop();
+            audioSource.Stop();
         }
     }
 }
