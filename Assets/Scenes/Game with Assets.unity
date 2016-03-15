@@ -26574,7 +26574,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -26596,7 +26596,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!1001 &541587698
 Prefab:
   m_ObjectHideFlags: 0
@@ -32418,6 +32418,14 @@ Prefab:
     - target: {fileID: 2300750, guid: 5e4d44f9a4e37574d9290588a0d0de03, type: 3}
       propertyPath: m_ReflectionProbeUsage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301416, guid: 5e4d44f9a4e37574d9290588a0d0de03, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301416, guid: 5e4d44f9a4e37574d9290588a0d0de03, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e4d44f9a4e37574d9290588a0d0de03, type: 3}
@@ -44854,7 +44862,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 436916, guid: 0d24c32335e7cfc4da72e058114120d7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -39.3572
+      value: -39.76
       objectReference: {fileID: 0}
     - target: {fileID: 436916, guid: 0d24c32335e7cfc4da72e058114120d7, type: 2}
       propertyPath: m_LocalPosition.y
@@ -56536,7 +56544,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2300750, guid: 5e4d44f9a4e37574d9290588a0d0de03, type: 3}
       propertyPath: m_CastShadows
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300750, guid: 5e4d44f9a4e37574d9290588a0d0de03, type: 3}
       propertyPath: m_UseLightProbes
