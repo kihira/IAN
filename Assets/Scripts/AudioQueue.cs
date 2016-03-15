@@ -9,7 +9,7 @@ public class AudioQueue : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GameObject.Find("Player").GetComponent<AudioSource>();
     }
 	
 	void Update () {
