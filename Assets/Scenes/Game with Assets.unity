@@ -26480,7 +26480,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 539722748}
   m_LocalRotation: {x: 0, y: 0.6087611, z: 0, w: 0.7933537}
-  m_LocalPosition: {x: -0.10056187, y: 1, z: -1.7428361}
+  m_LocalPosition: {x: 33.25, y: 1, z: 3.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1807429892}
@@ -28743,6 +28743,59 @@ BoxCollider:
 Transform:
   m_PrefabParentObject: {fileID: 400750, guid: 5e4d44f9a4e37574d9290588a0d0de03, type: 3}
   m_PrefabInternal: {fileID: 2009198514}
+--- !u!1 &970517842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 970517843}
+  - 65: {fileID: 970517845}
+  - 114: {fileID: 970517844}
+  m_Layer: 0
+  m_Name: Vending Machine Interact
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &970517843
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 970517842}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.59, y: 2.3, z: 1.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1425356536}
+  m_RootOrder: 0
+--- !u!114 &970517844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 970517842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bb2164e0cbda841b6d6c5ee77c2aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 8300000, guid: 29ecc63dec38f624e8266b801a51de4e, type: 3}
+--- !u!65 &970517845
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 970517842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1.66}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &989654168
 Prefab:
   m_ObjectHideFlags: 0
@@ -32862,6 +32915,7 @@ GameObject:
   - 4: {fileID: 1109820939}
   - 114: {fileID: 1109820940}
   - 114: {fileID: 1109820942}
+  - 65: {fileID: 1109820941}
   m_Layer: 0
   m_Name: Hand Mount
   m_TagString: Untagged
@@ -32898,6 +32952,18 @@ MonoBehaviour:
   retrackTime: 4
   canvas: {fileID: 1426183767}
   audioButton: {fileID: 681316517}
+--- !u!65 &1109820941
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1109820938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1109820942
 MonoBehaviour:
   m_ObjectHideFlags: 0
