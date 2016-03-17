@@ -8,7 +8,7 @@ public class SpeakTrigger : MonoBehaviour {
 	private bool hasPlayed = false;
 
 	void Start () {
-        audioQueue = GameObject.Find("Player/Hand Mount").GetComponent<AudioQueue>();
+        audioQueue = GameObject.Find("/Player/Hand Mount").GetComponent<AudioQueue>();
 	}
 
 	void OnTriggerEnter(Collider other)

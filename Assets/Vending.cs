@@ -4,14 +4,14 @@ using System.Collections;
 public class Vending : MonoBehaviour
 {
     private float lastCollideTime = -1;
-    private float cooldownTime = 2;
+    private float cooldownTime = 1;
 
     private AudioQueue audioQueue;
     [SerializeField] private AudioClip audio;
 
     void Start()
     {
-        audioQueue = GameObject.FindWithTag("Player").GetComponent<AudioQueue>();
+        audioQueue = GameObject.Find("/Player/Hand Mount").GetComponent<AudioQueue>();
     }
 	
 	void Update () {
