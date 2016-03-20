@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Leap;
 
 public class WallInteractable : MonoBehaviour
@@ -10,7 +11,7 @@ public class WallInteractable : MonoBehaviour
     {
         public string title;
         [TextArea(5, 5)] public string message;
-        public AudioClip audio;
+        public List<AudioClip> audio;
         public bool autoPlay;
     }
 

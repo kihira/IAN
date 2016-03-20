@@ -13,9 +13,9 @@ public class SpeakTrigger : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		Debug.Log ("The Trigger functions");
 		if (!hasPlayed) {
 			Debug.Log ("Audio hasn't been played");
+		    hasPlayed = true;
             audioQueue.AddAudio(voiceClip);
             Destroy(this.gameObject);
 		}

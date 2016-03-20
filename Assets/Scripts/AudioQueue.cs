@@ -18,12 +18,41 @@ public class AudioQueue : MonoBehaviour
             Debug.Log("Playing next clip");
             audioSource.clip = audioQueue.Dequeue();
             audioSource.Play();
-	    }
+        }
 	}
 
     public void AddAudio(AudioClip clip)
     {
-        Debug.Log("Added audioSource to queue");
         audioQueue.Enqueue(clip);
+        Debug.Log("Added audioSource to queue");
+    }
+
+    public void AddAudio(List<AudioClip> clips, bool forceTop = false)
+    {
+        if (forceTop)
+        {
+            AudioClip[] oldclips = new AudioClip[audioQueue.Count];
+            audioQueue.CopyTo(oldclips, 0);
+
+            audioQueue.Clear();
+            foreach (AudioClip audioClip in clips)
+            {
+                AddAudio(audioClip);
+            }
+            foreach (AudioClip audioClip in oldclips)
+            {
+                AddAudio(audioClip);
+            }
+            // Force play top
+            audioSource.clip = audioQueue.Dequeue();
+            audioSource.Play();
+        }
+        else
+        {
+            foreach (AudioClip audioClip in clips)
+            {
+                AddAudio(audioClip);
+            }
+        }
     }
 }

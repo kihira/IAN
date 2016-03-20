@@ -9,22 +9,52 @@ ModelImporter:
     100002: Corner Walls
     100004: //RootNode
     100006: Floor And Roof
+    100008: Floor And Roof001
+    100010: Roof001
+    100012: Roof002
+    100014: Roof003
+    100016: Roof004
     400000: Back Wall
     400002: Corner Walls
     400004: //RootNode
     400006: Floor And Roof
+    400008: Floor And Roof001
+    400010: Roof001
+    400012: Roof002
+    400014: Roof003
+    400016: Roof004
     2300000: Back Wall
     2300002: Corner Walls
     2300004: Floor And Roof
+    2300006: Floor And Roof001
+    2300008: Roof001
+    2300010: Roof002
+    2300012: Roof003
+    2300014: Roof004
     3300000: Back Wall
     3300002: Corner Walls
     3300004: Floor And Roof
+    3300006: Floor And Roof001
+    3300008: Roof001
+    3300010: Roof002
+    3300012: Roof003
+    3300014: Roof004
     4300000: Floor And Roof
     4300002: Back Wall
     4300004: Corner Walls
+    4300006: Floor And Roof001
+    4300008: Roof001
+    4300010: Roof004
+    4300012: Roof002
+    4300014: Roof003
     6400000: Back Wall
     6400002: Corner Walls
     6400004: Floor And Roof
+    6400006: Floor And Roof001
+    6400008: Roof001
+    6400010: Roof002
+    6400012: Roof003
+    6400014: Roof004
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -68,7 +98,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 3
   importAnimation: 0
   copyAvatar: 0
   humanDescription:

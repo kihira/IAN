@@ -9,22 +9,28 @@ ModelImporter:
     100002: Floor
     100004: Inner Wall
     100006: Outer Wall
+    100008: Floor001
     400000: //RootNode
     400002: Floor
     400004: Inner Wall
     400006: Outer Wall
+    400008: Floor001
     2300000: Floor
     2300002: Inner Wall
     2300004: Outer Wall
+    2300006: Floor001
     3300000: Floor
     3300002: Inner Wall
     3300004: Outer Wall
+    3300006: Floor001
     4300000: Floor
     4300002: Outer Wall
     4300004: Inner Wall
+    4300006: Floor001
     6400000: Floor
     6400002: Inner Wall
     6400004: Outer Wall
+    6400006: Floor001
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -68,7 +74,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 3
   importAnimation: 0
   copyAvatar: 0
   humanDescription:

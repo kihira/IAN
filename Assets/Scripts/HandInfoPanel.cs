@@ -23,6 +23,7 @@ public class HandInfoPanel : MonoBehaviour
     /** Components **/
     private AudioQueue audioQueue;
     private AudioSource audioSource;
+    private int currAudioPos;
 
     private HandModel hand;
     private WallInteractable.LogData currLog;
@@ -103,7 +104,7 @@ public class HandInfoPanel : MonoBehaviour
         canvas.SetActive(true);
         GameObject.Find("Canvas/Text Panel/ScrollView/Text").GetComponent<Text>().text = log.message;
         GameObject.Find("Canvas/Text Panel/ScrollHandle").GetComponent<DynamicScroll>().DelayedUpdate(0.1f);
-        audioQueue.AddAudio(log.audio);
+        audioQueue.AddAudio(log.audio, true);
     }
 
     void Audio()
