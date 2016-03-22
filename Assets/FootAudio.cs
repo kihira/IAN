@@ -17,7 +17,7 @@ public class FootAudio: MonoBehaviour
     {
         if (cc.isGrounded == true && cc.velocity.magnitude > 2f && footstep.isPlaying == false)
         {
-            footstep.volume = Random.Range(0.1f, 0.3f);
+            footstep.volume = Random.Range(0.01f, 0.05f);
             footstep.pitch = Random.Range(0.8f, 1.1f);
             footstep.Play();
         }
