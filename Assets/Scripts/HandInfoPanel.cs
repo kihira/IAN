@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Leap;
 using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
@@ -20,13 +21,18 @@ public class HandInfoPanel : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private GameObject audioButton;
 
+    [Header("Logs")]
+    [SerializeField] private GameObject logButtonPrefab;
+    [SerializeField] private GameObject logList;
+
     /** Components **/
     private AudioQueue audioQueue;
     private AudioSource audioSource;
     private int currAudioPos;
 
     private HandModel hand;
-    private WallInteractable.LogData currLog;
+    private List<LogData> logs = new List<LogData>();
+    private LogData currLog;
     private float playingTime = 0f;
 
     void Start()
@@ -91,7 +97,7 @@ public class HandInfoPanel : MonoBehaviour
         //if (faceCamera) transform.LookAt(Camera.main.transform);
     }
 
-    public void Attach(HandModel handModel, WallInteractable.LogData log)
+    public void Attach(HandModel handModel, LogData log)
     {
         hand = handModel;
         detachedTime = 0f;
@@ -100,11 +106,35 @@ public class HandInfoPanel : MonoBehaviour
         currLog = log;
         playingTime = 0f;
 
-        // TODO show downloading message
         canvas.SetActive(true);
         GameObject.Find("Canvas/Text Panel/ScrollView/Text").GetComponent<Text>().text = log.message;
         GameObject.Find("Canvas/Text Panel/ScrollHandle").GetComponent<DynamicScroll>().DelayedUpdate(0.1f);
         if (log.audio != null) audioQueue.AddAudio(log.audio, true);
+
+        logs.Add(log);
+        AddLogButton(log);
+    }
+
+    void AddLogButton(LogData data, bool sort = true)
+    {
+        // Create and setup button object
+        GameObject logButton = Instantiate(logButtonPrefab);
+        logButton.transform.SetParent(logList.transform, false);
+        logButton.GetComponentInChildren<Text>().text = data.title;
+
+        if (sort)
+        {
+            logs.Sort((l1, l2) => l1.message.Length - l2.message.Length);
+            // Remove all children then readd them
+            for (int i = 0; i < logList.transform.childCount; i++)
+            {
+                Destroy(logList.transform.GetChild(i).gameObject);
+            }
+            foreach (LogData log in logs)
+            {
+                AddLogButton(log, false);
+            }
+        }
     }
 
     void Audio()
@@ -125,5 +155,10 @@ public class HandInfoPanel : MonoBehaviour
         {
             audioSource.Stop();
         }
+    }
+
+    public void LogButton(string title)
+    {
+        
     }
 }

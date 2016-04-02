@@ -44,7 +44,7 @@ public class AudioQueue : MonoBehaviour
                 AddAudio(audioClip);
             }
             // Force play top
-            audioSource.clip = audioQueue.Dequeue();
+            if (audioQueue.Count > 0) audioSource.clip = audioQueue.Dequeue();
             audioSource.Play();
         }
         else

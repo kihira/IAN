@@ -836,8 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   log:
     title: 
-    message: "What do we do if IAN refuses to co-operate? If he doesn\u2019t accept
-      that he is an AI then all of this will be for nothing!\n"
+    message: 
     audio: []
     autoPlay: 0
 --- !u!1 &39268405
@@ -959,7 +958,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -482.87, y: -387.60004}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &48691453
 MonoBehaviour:
@@ -10133,7 +10132,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11460678, guid: 889642736375fe8429f6583323824114, type: 2}
       propertyPath: log.audio.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 465096, guid: 889642736375fe8429f6583323824114, type: 2}
       propertyPath: m_LocalPosition.x
@@ -10173,15 +10172,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11460678, guid: 889642736375fe8429f6583323824114, type: 2}
       propertyPath: log.message
-      value: "This is Doctor Harley, part of the research team. \nProgress report
-        on subject: IAN\n\nThe subject has been infected with a virus. Our team is
-        going to have to purge their system, reconstructing the areas that have been
-        infected.\n\nI have high hopes that this procedure will be successful.\n\nEnd
-        of report."
+      value: Test message 1
       objectReference: {fileID: 0}
     - target: {fileID: 11460678, guid: 889642736375fe8429f6583323824114, type: 2}
       propertyPath: log.autoPlay
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11460678, guid: 889642736375fe8429f6583323824114, type: 2}
       propertyPath: log.audio.Array.data[0]
@@ -10194,6 +10189,10 @@ Prefab:
     - target: {fileID: 124286, guid: 889642736375fe8429f6583323824114, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460678, guid: 889642736375fe8429f6583323824114, type: 2}
+      propertyPath: log.title
+      value: B
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6412764, guid: 889642736375fe8429f6583323824114, type: 2}
@@ -10663,9 +10662,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   log:
-    title: 
-    message: "IAN\u2019s intelligence is incredible! I\u2019ve never seen learning
-      at such a ridiculous speed!"
+    title: A
+    message: Test message 2
     audio: []
     autoPlay: 0
 --- !u!4 &186609648 stripped
@@ -11015,10 +11013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   log:
     title: 
-    message: "IAN is progressing quite nicely\u2026 By far, all expectations have
-      been surpassed\u2026 IAN has already reached a level of intelligence that rivals
-      or even surpasses humans\u2026\n\nThis is bad. There\u2019s no stop to IAN\u2019s
-      growth and if it continues\u2026 Then we will all be at IAN\u2019s mercy\u2026"
+    message: 
     audio: []
     autoPlay: 0
 --- !u!65 &249574430
@@ -11438,6 +11433,107 @@ Transform:
   - {fileID: 889749956}
   m_Father: {fileID: 1015228620}
   m_RootOrder: 0
+--- !u!1 &325454751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 325454752}
+  - 222: {fileID: 325454753}
+  - 114: {fileID: 325454756}
+  - 114: {fileID: 325454755}
+  - 114: {fileID: 325454754}
+  m_Layer: 0
+  m_Name: Logs Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &325454752
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 325454751}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1426183768}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -496.5001, y: -23.699924}
+  m_SizeDelta: {x: -1061.7999, y: -163.99985}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &325454753
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 325454751}
+--- !u!114 &325454754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 325454751}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1200242548, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 0
+--- !u!114 &325454755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 325454751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!114 &325454756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 325454751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1297475563, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_Spacing: 3
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 0
 --- !u!4 &325514982 stripped
 Transform:
   m_PrefabParentObject: {fileID: 448060, guid: b9c542efc243615438358817598250ac, type: 2}
@@ -26682,6 +26778,9 @@ MonoBehaviour:
   retrackTime: 4
   canvas: {fileID: 1426183767}
   audioButton: {fileID: 681316517}
+  logButtonPrefab: {fileID: 155606, guid: 9ba276f8de30cf34abe7f158ddddf091, type: 2}
+  logPadding: 3
+  logList: {fileID: 325454751}
 --- !u!114 &1109820942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37838,7 +37937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1426183768
 RectTransform:
   m_ObjectHideFlags: 0
@@ -37852,6 +37951,7 @@ RectTransform:
   - {fileID: 401759537}
   - {fileID: 78697849}
   - {fileID: 1011448605}
+  - {fileID: 325454752}
   m_Father: {fileID: 1109820939}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -37905,7 +38005,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 2
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1444893116}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

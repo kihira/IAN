@@ -6,15 +6,6 @@ using Leap;
 
 public class WallInteractable : MonoBehaviour
 {
-    [Serializable]
-    public struct LogData
-    {
-        public string title;
-        [TextArea(5, 5)] public string message;
-        public List<AudioClip> audio;
-        public bool autoPlay;
-    }
-
     [SerializeField] private LogData log;
 
     private bool activated = false;
@@ -44,20 +35,4 @@ public class WallInteractable : MonoBehaviour
 
         Debug.Log("Hand activated wall panel");
     }
-
-/*    void OnTriggerStay(Collider other)
-    {
-        if (currHandTouching == -1) return;
-        else Debug.Log("Hand colliding");
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        HandModel hand_model = GetHand(other.transform);
-        if (hand_model != null && hand_model.GetLeapHand().Id == currHandTouching)
-        {
-            Debug.Log("Hand leave " + currHandTouching);
-            currHandTouching = -1;
-        }
-    }*/
 }
